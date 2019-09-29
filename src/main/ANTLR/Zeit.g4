@@ -1,7 +1,7 @@
 grammar Zeit;
 
 
-zeit: einheit ':' einheit;
+zeit: einheit SEPERATOR einheit;
 
 einheit: DIGIT DIGIT;
 
