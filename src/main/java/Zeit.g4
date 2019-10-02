@@ -2,16 +2,19 @@ lexer grammar Zeit;
 
 // Token definitions
 
-TIMEUNIT: DIGIT DIGIT;
-SEPERATOR: ':';
+TIME: TIMEUNIT SEPERATOR TIMEUNIT | (TIMEUNIT SEPERATOR TIMEUNIT SEPERATOR TIMEUNIT);
+
 
 // Regular expressions used in token definitions
 fragment DIGIT: [0-9];
+fragment TIMEUNIT: DIGIT DIGIT;
+fragment SEPERATOR: ':';
 
 
 
+OTHER : . -> skip;
+//WHITESPACE : [ \t\r\n]+ ->skip ;
 
-WHITESPACE : [ \t\r\n]+ ->skip ;
 
 
 /*grammar Zeit;
