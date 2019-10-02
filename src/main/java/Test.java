@@ -10,11 +10,11 @@ public class Test {
         // Pick an input stream (filename from commandline or stdin)
         if (args.length>0) input = new ANTLRFileStream(args[0]);
         else input = new ANTLRInputStream(System.in);
-	  	ZeitLexer lex = new ZeitLexer(input);
+	  	Zeit lex = new Zeit(input);
         Token t=null;
         do {
             t = lex.nextToken();
-            if(t.getType() != ZeitLexer.EOF) {
+            if(t.getType() != Zeit.EOF) {
 	System.out.println(t.getText());
             }
         } while ( t.getType()!=Token.EOF );
