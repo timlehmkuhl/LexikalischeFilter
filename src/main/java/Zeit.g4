@@ -12,7 +12,7 @@ fragment SEPERATOR: ':';
 
 
 
-OTHER : . -> skip;
+OTHER : .TIME* -> skip;
 //WHITESPACE : [ \t\r\n]+ ->skip ;
 
 
