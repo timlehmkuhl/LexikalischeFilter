@@ -1,3 +1,2 @@
-DIGIT=1
-SEPERATOR=2
-'.'=2
+IP=1
+OTHER=2

@@ -8,8 +8,8 @@ public class Test {
       //  ST st = templates.getInstanceOf("…");
         CharStream input = null;
         // Pick an input stream (filename from commandline or stdin)
-        if (args.length>0) input = new ANTLRFileStream(args[0]);
-        else input = new ANTLRInputStream(System.in);
+        if (args.length>0) input = CharStreams.fromFileName(args[0]);
+        else input = CharStreams.fromStream(System.in);
 	  	Zeit lex = new Zeit(input);
         Token t=null;
         do {

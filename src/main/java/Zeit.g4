@@ -11,9 +11,13 @@ fragment TIMEUNIT: DIGIT DIGIT;
 fragment SEPERATOR: ':';
 
 
-
+//Schneide zu Zeit ab
 OTHER : .TIME* -> skip;
+
 //WHITESPACE : [ \t\r\n]+ ->skip ;
+
+
+
 
 
 

@@ -1,7 +1,4 @@
-import org.antlr.v4.runtime.ANTLRFileStream;
-import org.antlr.v4.runtime.ANTLRInputStream;
-import org.antlr.v4.runtime.CharStream;
-import org.antlr.v4.runtime.Token;
+import org.antlr.v4.runtime.*;
 
 public class IPTest {
     public static void main(String[] args) throws Exception {
@@ -9,13 +6,13 @@ public class IPTest {
         //  ST st = templates.getInstanceOf("…");
         CharStream input = null;
         // Pick an input stream (filename from commandline or stdin)
-        if (args.length>0) input = new ANTLRFileStream(args[0]);
-        else input = new ANTLRInputStream(System.in);
-        IpadresseLexer lex = new IpadresseLexer(input);
+        if (args.length>0) input = CharStreams.fromFileName(args[0]);
+        else input =  CharStreams.fromStream(System.in);
+        Ipadresse lex = new Ipadresse(input);
         Token t=null;
         do {
             t = lex.nextToken();
-            if(t.getType() != IpadresseLexer.EOF) {
+            if(t.getType() != Ipadresse.EOF) {
                 System.out.print(t.getText());
             }
         } while ( t.getType()!=Token.EOF );
