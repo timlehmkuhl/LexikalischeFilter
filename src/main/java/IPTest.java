@@ -13,11 +13,17 @@ public class IPTest {
         do {
             t = lex.nextToken();
             if(t.getType() != Ipadresse.EOF) {
-                System.out.print(t.getText());
+                System.out.print(t.getText() + " Valid: " + isValidIp(t.getText()));
             }
         } while ( t.getType()!=Token.EOF );
     }
 
+    public static boolean isValidIp(String ip){
+        String[] str = ip.split("\\.");
 
+        for(String oktal: str)
+            if (Integer.parseInt(oktal) > 255) return false;
+        return true;
+    }
 
 }
