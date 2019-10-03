@@ -15,8 +15,20 @@ public class Test {
         do {
             t = lex.nextToken();
             if(t.getType() != Zeit.EOF) {
-	System.out.println(t.getText());
+	System.out.println(t.getText() + " Valid: " + isValidTime(t.getText()));
+
             }
         } while ( t.getType()!=Token.EOF );
+    }
+
+    public static boolean isValidTime(String time){
+        int stunden = Integer.parseInt(time.substring(0,2));
+        int minuten = Integer.parseInt(time.substring(3,5));
+        int sekunden = 0;
+        if(time.length() > 5) sekunden = Integer.parseInt(time.substring(6,8));
+
+        if(stunden > 23 | minuten > 59 | sekunden > 59) return false;
+
+        return true;
     }
 }
