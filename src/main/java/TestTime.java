@@ -2,7 +2,7 @@ import org.antlr.v4.runtime.*;
 import org.stringtemplate.v4.*;
 
 
-public class Test {
+public class TestTime {
     public static void main(String[] args) throws Exception {
         //STGroup templates = new STGroupFile("…");
       //  ST st = templates.getInstanceOf("…");
