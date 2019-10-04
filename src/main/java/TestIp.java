@@ -1,6 +1,6 @@
 import org.antlr.v4.runtime.*;
 
-public class IPTest {
+public class TestIp {
     public static void main(String[] args) throws Exception {
         //STGroup templates = new STGroupFile("…");
         //  ST st = templates.getInstanceOf("…");
