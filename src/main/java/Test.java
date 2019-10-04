@@ -27,7 +27,7 @@ public class Test {
         int sekunden = 0;
         if(time.length() > 5) sekunden = Integer.parseInt(time.substring(6,8));
 
-        if(stunden > 23 | minuten > 59 | sekunden > 59) return false;
+        if((stunden > 23 && stunden >=0) | (minuten > 59 && minuten >=0) | (sekunden > 59 && sekunden >=0)) return false;
 
         return true;
     }

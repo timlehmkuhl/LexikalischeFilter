@@ -22,7 +22,7 @@ public class IPTest {
         String[] str = ip.split("\\.");
 
         for(String oktal: str)
-            if (Integer.parseInt(oktal) > 255) return false;
+            if (Integer.parseInt(oktal) > 255 && Integer.parseInt(oktal) >=0) return false;
         return true;
     }
 
