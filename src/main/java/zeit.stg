@@ -1,0 +1,3 @@
+//zeit(stunden, minuten, sekunden, doppelpunkt) ::= "<stunden><doppelpunkt><minuten><doppelpunkt><sekunden>"
+
+zeit(zeiteinheit) ::= "<zeiteinheit>"
