@@ -19,7 +19,7 @@ public class TestIp {
             if(t.getType() == Ipadresse.IP && isValidIp(t.getText())) {
                 ST st = templates.getInstanceOf("ip");
                 st.add("ipadresse", t.getText());
-                System.out.print(st.render());
+                System.out.println(st.render());
             }
         } while ( t.getType()!=Token.EOF );
     }
@@ -28,7 +28,10 @@ public class TestIp {
         String[] str = ip.split("\\.");
 
         for(String oktal: str)
-            if (Integer.parseInt(oktal) > 255 && Integer.parseInt(oktal) >=0) return false;
+            if (Integer.parseInt(oktal) > 255 && Integer.parseInt(oktal) >=0){
+                System.err.println(ip + " ist keine gueltige IP!");
+                return false;
+            }
         return true;
     }
 
