@@ -4,15 +4,15 @@ import org.stringtemplate.v4.*;
 
 public class TestZeit {
     public static void main(String[] args) throws Exception {
-        STGroup templates = new STGroupFile("G:\\InfProjekte\\LexikalischeFilter\\src\\main\\java\\zeit.stg");
 
-      //  System.out.println( "Name: " + st.getName());
+        STGroup templates = new STGroupFile("G:\\InfProjekte\\LexikalischeFilter\\src\\main\\java\\zeit.stg");
         CharStream input = null;
         // Pick an input stream (filename from commandline or stdin)
         if (args.length>0) input = CharStreams.fromFileName(args[0]);
         else input = CharStreams.fromStream(System.in);
 	  	Zeit lex = new Zeit(input);
         Token t=null;
+
         do {
             t = lex.nextToken();
             if(t.getType() == Zeit.TIME && isValidTime(t.getText())) {
