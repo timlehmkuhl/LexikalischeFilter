@@ -1,17 +1,26 @@
 import org.antlr.v4.runtime.*;
 import org.stringtemplate.v4.*;
 
+import java.io.IOException;
+
 
 public class TestZeit {
-    public static void main(String[] args) throws Exception {
+
+    public TestZeit() {
+    }
+
+    public String run(String str, boolean file) throws IOException {
 
         STGroup templates = new STGroupFile("G:\\InfProjekte\\LexikalischeFilter\\src\\main\\java\\zeit.stg");
+
         CharStream input = null;
         // Pick an input stream (filename from commandline or stdin)
-        if (args.length>0) input = CharStreams.fromFileName(args[0]);
-        else input = CharStreams.fromStream(System.in);
+        if (file) input = CharStreams.fromFileName(str);
+        else input = CharStreams.fromString(str);
+
 	  	Zeit lex = new Zeit(input);
         Token t=null;
+        String ret = "";
 
         do {
             t = lex.nextToken();
@@ -25,15 +34,16 @@ public class TestZeit {
                 ST st = templates.getInstanceOf("zeit");
                 st.add("zeiteinheit", t.getText());
 
-                System.out.println(st.render());
+                ret = ret + st.render() + "\n";
 
             }
         } while ( t.getType()!=Token.EOF );
+        return ret.length() > 0 ? ret.substring(0,ret.length()-1) : ret;
     }
 
 
 
-    public static boolean isValidTime(String time){
+    public boolean isValidTime(String time){
         int stunden = Integer.parseInt(time.substring(0,2));
         int minuten = Integer.parseInt(time.substring(3,5));
         int sekunden = 0;
